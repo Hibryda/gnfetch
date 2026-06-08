@@ -21,16 +21,25 @@ build() {
     cd "$pkgname-$pkgver"
     export RUSTUP_TOOLCHAIN=stable
     export CARGO_TARGET_DIR=target
-    # rustls's `ring` fails to link with lld ("undefined symbol: ring_core_*").
-    # Force GNU bfd, which resolves ring's hand-written asm symbols.
-    export RUSTFLAGS="${RUSTFLAGS:-} -C link-arg=-fuse-ld=bfd"
+    _force_gnu_ld
     cargo build --frozen --release
 }
 
 check() {
     cd "$pkgname-$pkgver"
     export RUSTUP_TOOLCHAIN=stable
+    _force_gnu_ld
     cargo test --frozen --release
+}
+
+# Arch's rust defaults to lld, which can't link rustls's `ring` asm
+# ("undefined symbol: ring_core_*"). Force GNU ld. We must use
+# CARGO_ENCODED_RUSTFLAGS, not RUSTFLAGS, because makepkg sets the former and it
+# takes precedence (silently discarding RUSTFLAGS). Append so any makepkg flags
+# are preserved and our -fuse-ld wins (last one applies).
+_force_gnu_ld() {
+    local sep=$'\x1f'
+    export CARGO_ENCODED_RUSTFLAGS="${CARGO_ENCODED_RUSTFLAGS:+${CARGO_ENCODED_RUSTFLAGS}${sep}}-Clink-arg=-fuse-ld=bfd"
 }
 
 package() {
