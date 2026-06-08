@@ -245,7 +245,7 @@ mod tests {
     #[test]
     fn short_mount_keeps_tail() {
         assert_eq!(short_mount("/home"), "/home");
-        let s = short_mount("/home/hibryda/code/models");
+        let s = short_mount("/home/user/code/models");
         assert_eq!(s, "…de/models");
         assert_eq!(s.chars().count(), 10);
     }
