@@ -77,10 +77,9 @@ sudo rpm -i https://github.com/Hibryda/gnfetch/releases/latest/download/gnfetch.
 ### Arch Linux (AUR)
 
 ```bash
-yay -S gnfetch-bin    # or: paru -S gnfetch-bin
+yay -S gnfetch        # builds from source
+yay -S gnfetch-bin    # or the prebuilt binary (no compile)
 ```
-
-(`gnfetch-bin` installs the prebuilt static binary.)
 
 ### AppImage (any distro)
 
