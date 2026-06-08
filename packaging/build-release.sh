@@ -42,7 +42,8 @@ build_target() {
 }
 
 tarball() {
-    local target="$1" bin="target/$target/release/$NAME"
+    local target="$1"
+    local bin="target/$target/release/$NAME"
     [ -f "$bin" ] || { warn "no binary for $target"; return 1; }
     local stage="$DIST/$NAME-$VERSION-$target"
     mkdir -p "$stage"
