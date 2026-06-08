@@ -21,9 +21,9 @@ build() {
     cd "$pkgname-$pkgver"
     export RUSTUP_TOOLCHAIN=stable
     export CARGO_TARGET_DIR=target
-    # The v0.1.0 source pins fat LTO, which fails to link against ring with lld
-    # (Arch's default linker). Force thin LTO for a clean build.
-    export CARGO_PROFILE_RELEASE_LTO=thin
+    # rustls's `ring` fails to link with lld ("undefined symbol: ring_core_*").
+    # Force GNU bfd, which resolves ring's hand-written asm symbols.
+    export RUSTFLAGS="${RUSTFLAGS:-} -C link-arg=-fuse-ld=bfd"
     cargo build --frozen --release
 }
 

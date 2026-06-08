@@ -32,9 +32,7 @@ viuer = { version = "0.11.0", features = ["icy_sixel"] }
 libc = "0.2.186"
 
 [profile.release]
-# "thin" not fat LTO: fat lto=true + rustls's `ring` + lld (Arch's default linker)
-# fails to link (undefined ring_core_* symbols). Thin links cleanly everywhere.
-lto = "thin"
+lto = true
 strip = true
 
 # --- Packaging metadata (see packaging/build-release.sh) ---

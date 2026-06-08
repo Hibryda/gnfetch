@@ -13,8 +13,6 @@ follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Release profile uses thin LTO instead of fat LTO, which failed to link against `ring`
-  with lld (Arch's default linker).
 - README screenshots regenerated from fully mocked data (no real user/host/disk paths).
 
 ### Fixed
