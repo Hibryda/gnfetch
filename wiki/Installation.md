@@ -19,7 +19,7 @@ sudo rpm -i https://github.com/Hibryda/gnfetch/releases/latest/download/gnfetch.
 ## Arch Linux
 
 ```bash
-yay -S gnfetch       # or paru -S gnfetch
+yay -S gnfetch-bin   # or paru -S gnfetch-bin
 ```
 
 ## AppImage (any distro)
