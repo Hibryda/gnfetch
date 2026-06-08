@@ -78,7 +78,12 @@ fn main() -> ExitCode {
         return ExitCode::SUCCESS;
     }
 
-    let mut info = collectors::collect_all();
+    // `--mock [DISTRO]` renders a fictional system (no real machine data); else
+    // collect this machine.
+    let mut info = match &cli.mock {
+        Some(spec) => demo::mock_system((!spec.is_empty()).then_some(spec.as_str())),
+        None => collectors::collect_all(),
+    };
     if let Some(distro) = &cli.distro {
         info.distro_id = Some(distro.clone());
     }

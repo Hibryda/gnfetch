@@ -72,6 +72,11 @@ pub struct Cli {
     #[arg(long, value_name = "ID")]
     pub distro: Option<String>,
 
+    /// Render a fictional example system instead of this machine (for
+    /// screenshots/testing); optionally pick a distro, e.g. --mock arch.
+    #[arg(long, num_args = 0..=1, default_missing_value = "", value_name = "DISTRO")]
+    pub mock: Option<String>,
+
     /// Background: solid | gradient | diagonal | radial | grid | dots | image |
     /// transparent | linear-<angle> (e.g. linear-30).
     #[arg(long, value_name = "SPEC")]

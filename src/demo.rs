@@ -213,6 +213,36 @@ fn shuffle<T>(v: &mut [T]) {
     }
 }
 
+/// A fictional system for screenshots / testing (`--mock`). `id` selects a distro
+/// from the pool by os-release id (e.g. `arch`); `None` or an unknown id returns
+/// the first entry. Carries no real machine data; the username is a plausible
+/// placeholder per distro so screenshots show varied mocked users.
+pub fn mock_system(id: Option<&str>) -> SystemInfo {
+    let pool = systems();
+    let mut sys = id
+        .and_then(|want| pool.iter().find(|s| s.distro_id.as_deref() == Some(want)))
+        .cloned()
+        .unwrap_or_else(|| pool[0].clone());
+    sys.user = Some(mock_user(sys.distro_id.as_deref()).to_string());
+    sys
+}
+
+/// A plausible placeholder username per distro (keeps `--mock` screenshots varied).
+fn mock_user(id: Option<&str>) -> &'static str {
+    match id {
+        Some("arch") => "alex",
+        Some("fedora") => "max",
+        Some("ubuntu") => "jo",
+        Some("gentoo") => "ada",
+        Some("nixos") => "kai",
+        Some("manjaro") => "remy",
+        Some("opensuse") => "lena",
+        Some("popos") => "theo",
+        Some("void") => "nova",
+        _ => "sam",
+    }
+}
+
 /// A pool of fictional systems (distinct distros) for the gallery.
 fn systems() -> Vec<SystemInfo> {
     vec![

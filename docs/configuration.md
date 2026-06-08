@@ -157,6 +157,8 @@ The image is darkened (~45% brightness) so foreground text stays legible; pass
 - `--mode auto\|ansi\|image` — force a renderer (default `auto`).
 - `--save <PATH>` / `-o` — export the card to an image file and exit.
 - `--width <PX>` — target width in pixels for the saved card (`--save` only; default auto). The exact width may differ by a few pixels because layouts round at scale; the scale is clamped to keep tiny widths legible and huge ones sane.
+- `--mock [DISTRO]` — render a fictional example system instead of this machine (no real
+  data) — handy for screenshots and testing. Optionally pick a distro, e.g. `--mock arch`.
 - `--probe` — print terminal detection and the chosen card size, then exit.
 - `--list-themes`, `--list-layouts`, `--list-fields`, `--list-fonts`, `--list-backgrounds`.
 - `--demo` — render a gallery of example cards (dummy data) showcasing the options.
