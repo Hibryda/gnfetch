@@ -1,0 +1,88 @@
+//! Embedded distro logo SVGs from Simple Icons (CC0). DO NOT EDIT BY HAND.
+//! Source: https://github.com/simple-icons/simple-icons — see assets/logos/LICENSE.txt.
+//! Regenerate via scripts/gen_svg.py.
+
+/// Embedded SVG bytes for a distro id (any case / punctuation), or `None`.
+pub fn svg_for(id: &str) -> Option<&'static [u8]> {
+    let mut key: String = id
+        .chars()
+        .filter(|c| c.is_ascii_alphanumeric())
+        .flat_map(|c| c.to_lowercase())
+        .collect();
+    key = match key.as_str() {
+        "alpinelinux" => "alpine".to_string(),
+        "archlinux" => "arch".to_string(),
+        "artixlinux" => "artix".to_string(),
+        "coreos" => "fedora".to_string(),
+        "elementaryos" => "elementary".to_string(),
+        "fedoraasahiremix" => "asahi".to_string(),
+        "garudalinux" => "garuda".to_string(),
+        "kalilinux" => "kali".to_string(),
+        "kdeneon" => "neon".to_string(),
+        "manjarolinux" => "manjaro".to_string(),
+        "mxlinux" => "mx".to_string(),
+        "nobaralinux" => "nobara".to_string(),
+        "opensuseleap" => "opensuse".to_string(),
+        "opensusetumbleweed" => "opensuse".to_string(),
+        "pop" => "popos".to_string(),
+        "pve" => "proxmox".to_string(),
+        "qubesos" => "qubes".to_string(),
+        "raspberrypi" => "raspbian".to_string(),
+        "rhel" => "redhat".to_string(),
+        "rockylinux" => "rocky".to_string(),
+        "suse" => "opensuse".to_string(),
+        "ubuntumatelinux" => "ubuntumate".to_string(),
+        "voidlinux" => "void".to_string(),
+        _ => key,
+    };
+    match key.as_str() {
+        "almalinux" => Some(include_bytes!("../../assets/logos/almalinux.svg")),
+        "alpine" => Some(include_bytes!("../../assets/logos/alpine.svg")),
+        "android" => Some(include_bytes!("../../assets/logos/android.svg")),
+        "arch" => Some(include_bytes!("../../assets/logos/arch.svg")),
+        "artix" => Some(include_bytes!("../../assets/logos/artix.svg")),
+        "asahi" => Some(include_bytes!("../../assets/logos/asahi.svg")),
+        "centos" => Some(include_bytes!("../../assets/logos/centos.svg")),
+        "debian" => Some(include_bytes!("../../assets/logos/debian.svg")),
+        "deepin" => Some(include_bytes!("../../assets/logos/deepin.svg")),
+        "devuan" => Some(include_bytes!("../../assets/logos/devuan.svg")),
+        "elementary" => Some(include_bytes!("../../assets/logos/elementary.svg")),
+        "endeavouros" => Some(include_bytes!("../../assets/logos/endeavouros.svg")),
+        "fedora" => Some(include_bytes!("../../assets/logos/fedora.svg")),
+        "freebsd" => Some(include_bytes!("../../assets/logos/freebsd.svg")),
+        "garuda" => Some(include_bytes!("../../assets/logos/garuda.svg")),
+        "gentoo" => Some(include_bytes!("../../assets/logos/gentoo.svg")),
+        "gnu" => Some(include_bytes!("../../assets/logos/gnu.svg")),
+        "kali" => Some(include_bytes!("../../assets/logos/kali.svg")),
+        "kubuntu" => Some(include_bytes!("../../assets/logos/kubuntu.svg")),
+        "linuxmint" => Some(include_bytes!("../../assets/logos/linuxmint.svg")),
+        "lubuntu" => Some(include_bytes!("../../assets/logos/lubuntu.svg")),
+        "manjaro" => Some(include_bytes!("../../assets/logos/manjaro.svg")),
+        "mx" => Some(include_bytes!("../../assets/logos/mx.svg")),
+        "neon" => Some(include_bytes!("../../assets/logos/neon.svg")),
+        "netbsd" => Some(include_bytes!("../../assets/logos/netbsd.svg")),
+        "nixos" => Some(include_bytes!("../../assets/logos/nixos.svg")),
+        "nobara" => Some(include_bytes!("../../assets/logos/nobara.svg")),
+        "openbsd" => Some(include_bytes!("../../assets/logos/openbsd.svg")),
+        "opensuse" => Some(include_bytes!("../../assets/logos/opensuse.svg")),
+        "openwrt" => Some(include_bytes!("../../assets/logos/openwrt.svg")),
+        "parrot" => Some(include_bytes!("../../assets/logos/parrot.svg")),
+        "popos" => Some(include_bytes!("../../assets/logos/popos.svg")),
+        "proxmox" => Some(include_bytes!("../../assets/logos/proxmox.svg")),
+        "qubes" => Some(include_bytes!("../../assets/logos/qubes.svg")),
+        "raspbian" => Some(include_bytes!("../../assets/logos/raspbian.svg")),
+        "redhat" => Some(include_bytes!("../../assets/logos/redhat.svg")),
+        "rocky" => Some(include_bytes!("../../assets/logos/rocky.svg")),
+        "slackware" => Some(include_bytes!("../../assets/logos/slackware.svg")),
+        "solus" => Some(include_bytes!("../../assets/logos/solus.svg")),
+        "tails" => Some(include_bytes!("../../assets/logos/tails.svg")),
+        "truenas" => Some(include_bytes!("../../assets/logos/truenas.svg")),
+        "tuxedo" => Some(include_bytes!("../../assets/logos/tuxedo.svg")),
+        "ubuntu" => Some(include_bytes!("../../assets/logos/ubuntu.svg")),
+        "ubuntumate" => Some(include_bytes!("../../assets/logos/ubuntumate.svg")),
+        "void" => Some(include_bytes!("../../assets/logos/void.svg")),
+        "xubuntu" => Some(include_bytes!("../../assets/logos/xubuntu.svg")),
+        "zorin" => Some(include_bytes!("../../assets/logos/zorin.svg")),
+        _ => None,
+    }
+}

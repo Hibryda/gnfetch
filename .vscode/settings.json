@@ -1,0 +1,39 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#355b6e",
+    "activityBar.background": "#355b6e",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#422e24",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#355b6e",
+    "statusBar.background": "#243f4c",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#355b6e",
+    "statusBarItem.remoteBackground": "#243f4c",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#243f4c",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#243f4c99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#243f4c",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.git": true
+  }
+}

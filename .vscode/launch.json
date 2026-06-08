@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug gnfetch",
+      "type": "lldb",
+      "request": "launch",
+      "cargo": {
+        "args": ["build", "--bin=gnfetch"],
+        "filter": {
+          "name": "gnfetch",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug unit tests",
+      "type": "lldb",
+      "request": "launch",
+      "cargo": {
+        "args": ["test", "--no-run", "--bin=gnfetch"],
+        "filter": {
+          "name": "gnfetch",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

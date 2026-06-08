@@ -1,0 +1,32 @@
+# Maintainer: Hibryda <guess.crypto@proton.me>
+pkgname=gnfetch
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="A neofetch/fastfetch alternative that renders system info as a graphical card or ANSI"
+arch=('x86_64' 'aarch64')
+url="https://github.com/Hibryda/gnfetch"
+license=('MIT')
+makedepends=('rust' 'cargo')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+    cd "$pkgname-$pkgver"
+    export RUSTUP_TOOLCHAIN=stable
+    export CARGO_TARGET_DIR=target
+    cargo build --frozen --release --all-features
+}
+
+check() {
+    cd "$pkgname-$pkgver"
+    export RUSTUP_TOOLCHAIN=stable
+    cargo test --frozen --release
+}
+
+package() {
+    cd "$pkgname-$pkgver"
+    install -Dm755 "target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+    install -Dm644 docs/configuration.md "$pkgdir/usr/share/doc/$pkgname/configuration.md"
+}

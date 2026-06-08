@@ -1,0 +1,40 @@
+# gnfetch configuration — copy to ~/.config/gnfetch/config.toml
+# Every key is optional; omitted keys use the built-in defaults.
+# CLI flags override anything set here.
+
+# Layout: card | neofetch | columns | strip | compact
+layout = "card"
+
+# Theme: "auto" matches the detected distro's brand colors (Debian red, Ubuntu
+# orange, ...), falling back to "default". Also: default | nord | dracula |
+# gruvbox | catppuccin | tokyonight | solarized | rose-pine, or a distro name
+# (debian, ubuntu, fedora, arch, ...). See `gnfetch --list-themes`.
+theme = "auto"
+
+# Optional accent override as #rrggbb (overrides the theme's accent).
+# accent = "#38c1b2"
+
+# Logo source: drawn | ascii | image | off
+logo = "drawn"
+# logo-image = "/path/to/logo.png"   # used when logo = "image"
+
+# Background: solid | gradient | diagonal | linear-<angle> | radial | grid | dots
+#             | image | transparent   (e.g. "linear-30" for a 30° gradient)
+background = "solid"
+# background-image = "/path/to/wallpaper.png"   # used when background = "image"
+
+# Keep the distro's brand color for the logo and title even with another theme.
+brand = false
+
+# Field selection / order. Omit to use the default. Keys: os kernel uptime
+# packages shell de wm cpu gpu memory swap disk blank (see `gnfetch --list-fields`).
+# fields = ["os", "kernel", "cpu", "gpu", "blank", "memory", "disk"]
+
+# Light theme (light background, dark text). Default is dark.
+light = false
+
+# Fonts. Heading (title/keys) = sans or serif; body (values/bars) = mono.
+# Omit for system defaults. Bundled: poppins dejavu-mono pacifico lobster
+# righteous bungee — or any installed system font by family name (`--list-fonts`).
+# sans = "Inter"
+# mono = "Fira Code"

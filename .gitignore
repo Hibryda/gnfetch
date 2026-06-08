@@ -1,0 +1,88 @@
+# === OS ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+*.swn
+.nfs*
+
+# === Editors / IDEs ===
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.history/
+.ionide/
+
+# === Environment / Secrets ===
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.p12
+*.jks
+*.keystore
+credentials.json
+service-account*.json
+secrets/
+.secrets/
+
+# === Claude Code ===
+.claude/settings.local.json
+
+# === Logs ===
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === Archives / Binaries ===
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.dmg
+*.iso
+*.exe
+*.dll
+*.so
+*.dylib
+
+# === Local render scratch (gnfetch --save outputs land at repo root) ===
+/*.png
+
+# === Release artifacts (packaging/build-release.sh) ===
+/dist/
+
+# === Rust ===
+target/
+**/*.rs.bk
+*.pdb
+# Cargo.lock is committed: gnfetch is a binary, so the lockfile pins
+# reproducible builds. (Libraries would gitignore it instead.)
+
+# === Public repo: keep AI / dev tooling out ===
+.claude/
+CLAUDE.md
+dist/

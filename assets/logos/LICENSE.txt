@@ -1,0 +1,8 @@
+Distro logo SVGs in this directory are from Simple Icons
+(https://github.com/simple-icons/simple-icons), released under the
+CC0 1.0 Universal license (public domain dedication):
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The icons depict third-party logos that may be trademarks of their respective
+owners; Simple Icons distributes the icon artwork under CC0. gnfetch renders
+them recolored to the active theme accent.

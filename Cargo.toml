@@ -1,0 +1,67 @@
+[package]
+name = "gnfetch"
+version = "0.1.0"
+edition = "2024"
+# MSRV floor: sysinfo 0.39 requires Rust 1.95.
+rust-version = "1.95"
+description = "A neofetch/fastfetch alternative with TUI and inline-graphics system cards"
+license = "MIT"
+readme = "README.md"
+keywords = ["neofetch", "fastfetch", "system-info", "cli", "terminal"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+ab_glyph = "0.2.32"
+clap = { version = "4.6.1", features = ["derive"] }
+fontdb = { version = "0.23.0", default-features = false, features = ["fs", "memmap", "fontconfig"] }
+image = "0.25.10"
+imageproc = "0.27.0"
+resvg = "0.47.0"
+rustix = { version = "1.1.4", features = ["termios"] }
+serde = { version = "1.0.228", features = ["derive"] }
+sysinfo = "0.39.3"
+toml = "1.1.2"
+# gzip intentionally omitted: image payloads are already compressed, so HTTP
+# gzip adds no benefit and only widens the decode surface.
+ureq = { version = "3.3.0", default-features = false, features = ["rustls"] }
+viuer = { version = "0.11.0", features = ["icy_sixel"] }
+
+# Unix-only: reset SIGPIPE to default so `gnfetch | head` exits quietly instead
+# of erroring/panicking. libc is already present transitively, so this is ~free.
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.186"
+
+[profile.release]
+lto = true
+strip = true
+
+# --- Packaging metadata (see packaging/build-release.sh) ---
+
+# Debian/Ubuntu .deb via `cargo deb`.
+[package.metadata.deb]
+maintainer = "Hibryda <guess.crypto@proton.me>"
+copyright = "2026, Hibryda"
+license-file = ["LICENSE", "0"]
+extended-description = """
+gnfetch shows system information as classic ANSI output and, in terminals that
+support inline graphics (Kitty/iTerm2/Sixel), as a rich graphical card."""
+section = "utils"
+priority = "optional"
+assets = [
+    ["target/release/gnfetch", "usr/bin/", "755"],
+    ["README.md", "usr/share/doc/gnfetch/README.md", "644"],
+    ["docs/configuration.md", "usr/share/doc/gnfetch/configuration.md", "644"],
+    ["LICENSE", "usr/share/doc/gnfetch/copyright", "644"],
+]
+
+# Fedora/openSUSE .rpm via `cargo generate-rpm`.
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/gnfetch", dest = "/usr/bin/gnfetch", mode = "755" },
+    { source = "README.md", dest = "/usr/share/doc/gnfetch/README.md", mode = "644" },
+    { source = "docs/configuration.md", dest = "/usr/share/doc/gnfetch/configuration.md", mode = "644" },
+    { source = "LICENSE", dest = "/usr/share/licenses/gnfetch/LICENSE", mode = "644" },
+]
+
+[package.metadata.generate-rpm.requires]
+glibc = "*"

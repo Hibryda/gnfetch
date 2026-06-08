@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=gnfetch
+GenericName=System information
+Comment=Render system info as a graphical card or classic ANSI output
+Exec=gnfetch
+Icon=gnfetch
+Terminal=true
+Categories=Utility;System;ConsoleOnly;
+Keywords=neofetch;fastfetch;system;info;fetch;

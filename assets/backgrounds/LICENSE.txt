@@ -1,0 +1,37 @@
+Bundled background images
+=========================
+
+All images in this directory are NASA / public-domain imagery, downscaled to
+<=1600px and re-compressed (JPEG q82) for bundling. NASA media is generally not
+copyrighted and may be used freely; see NASA's media usage guidelines:
+https://www.nasa.gov/nasa-brand-center/images-and-media/
+
+Per-file source and credit:
+
+andromeda.jpg
+  The Andromeda Galaxy (M31).
+  Credit: NASA/JPL-Caltech. NASA id: PIA04921
+  Source: https://images-assets.nasa.gov/image/PIA04921/PIA04921~large.jpg
+
+aurora.jpg
+  Aurora Australis (Southern Lights) seen from the Space Shuttle (STS-45).
+  Credit: NASA. NASA id: s45-32-014
+  Source: https://images-assets.nasa.gov/image/s45-32-014/s45-32-014~large.jpg
+
+carina.jpg
+  "Cosmic Cliffs" in the Carina Nebula (NGC 3324), JWST NIRCam.
+  Credit: NASA, ESA, CSA, STScI. NASA id: carina_nebula
+  Source: https://images-assets.nasa.gov/image/carina_nebula/carina_nebula~large.jpg
+
+earth.jpg
+  Blue Marble 2012 (composite of Earth).
+  Credit: NASA/NOAA/GSFC (Reto Stockli). NASA id: GSFC_20171208_Archive_e001386
+  Source: https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001386/GSFC_20171208_Archive_e001386~large.jpg
+
+helix.jpg
+  The Helix Nebula (NGC 7293).
+  Credit: NASA/JPL-Caltech. NASA id: PIA15658
+  Source: https://images-assets.nasa.gov/image/PIA15658/PIA15658~orig.jpg
+
+These images are not covered by the project's MIT license; they are public
+domain (NASA). Attribution above is provided as a courtesy.
