@@ -6,6 +6,21 @@ follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- `--mock [DISTRO]` renders a fictional example system (no real machine data) — for
+  screenshots and testing.
+
+### Changed
+
+- Release profile uses thin LTO instead of fat LTO, which failed to link against `ring`
+  with lld (Arch's default linker).
+- README screenshots regenerated from fully mocked data (no real user/host/disk paths).
+
+### Fixed
+
+- `packaging/build-release.sh`: split a `local` declaration that broke under `set -u`.
+
 ## [0.1.0] - 2026-06-08
 
 First public release.
